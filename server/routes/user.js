@@ -48,6 +48,8 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
         const { passwords, ...others } = user._doc;
+        // console.log(req.params.id); 657162f5207e000d1fa0f244 
+        // console.log(req.user.id); 657162f5207e000d1fa0f244
 
         res.status(200).json(others);
 
@@ -95,6 +97,7 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
                 },
             },
         ]);
+        // console.log(data);
         res.status(200).json(data)
     } catch (err) {
         res.status(500).json(err);

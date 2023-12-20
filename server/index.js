@@ -28,7 +28,6 @@ mongoose.connect(process.env.MONGO_URL)
     app.use("/api/orders", orderRoute);
     app.use("/api/checkout", stripeRoute);
 
-
 app.listen(port, () => {
     console.log(`server is running at port no ${port}`)
 })
